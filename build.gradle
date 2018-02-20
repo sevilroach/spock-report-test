@@ -1,10 +1,11 @@
 ext {
     ext {
+        bootstrapVersion = "3.3.7-1"
         gebVersion = '2.1'
         groovyVersion = '2.4.13'
         junitVersion = '4.12'
         seleniumVersion = '3.9.1'
-        slf4j = '1.7.13'
+        slf4jVersion = '1.7.13'
         spockVersion = '1.1-groovy-2.4'
     }
 }
@@ -27,6 +28,14 @@ dependencies {
     testCompile "org.codehaus.groovy:groovy-all:$groovyVersion"
     testCompile "org.seleniumhq.selenium:selenium-server:$seleniumVersion"
     testCompile "junit:junit:$junitVersion"
+
+    // Spock report dependencies
+    testCompile("com.athaydes:spock-reports:1.4.0") {
+        transitive = false // this avoids affecting the version of Geb/Spock being used
+    }
+    testCompile "org.slf4j:slf4j-api:$slf4jVersion"
+    testCompile "org.slf4j:slf4j-simple:$slf4jVersion"
+    testCompile "org.webjars:bootstrap:$bootstrapVersion"
 }
 
 task "chromeTest"(type: Test) {
