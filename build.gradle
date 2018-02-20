@@ -21,13 +21,20 @@ repositories {
 dependencies {
     testCompile "org.gebish:geb-spock:$gebVersion"
     testCompile("org.spockframework:spock-core:$spockVersion") {
-        exclude group: "org.codehouse.groovy"
+        exclude group: "org.codehaus.groovy"
     }
     testCompile "org.gebish:geb-gradle:$gebVersion"
-    testCompile "org.codehouse.groovy:groovy-all:$groovyVersion"
+    testCompile "org.codehaus.groovy:groovy-all:$groovyVersion"
+    testCompile "org.seleniumhq.selenium:selenium-server:$seleniumVersion"
     testCompile "junit:junit:$junitVersion"
 }
 
-task {
-    
+task "chromeTest"(type: Test) {
+    reports {
+        html.destination = reporting.file("$name/tests")
+        junitXml.destination = file("$buildDir/test-results/$name")
+    }
+    outputs.upToDateWhen { false } // Always run test-results
+    systemProperty "geb.build.reportsDir", reporting.file("$name")
+    systemProperty "driverType", "chrome"
 }
