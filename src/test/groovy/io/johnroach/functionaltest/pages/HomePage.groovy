@@ -7,7 +7,7 @@ class HomePage extends BasePage {
     static url = ""
 
     static content = {
-        firstPostCard { $("article", 0, class: "post-card").find("a") }
+        firstPostCard { $("article", class: "post-card").find("a")[0] }
         siteDescription { $("h2", class: "site-description") }
     }
 }

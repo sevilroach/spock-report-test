@@ -4,7 +4,7 @@ import geb.Page
 
 
 class FirstPostPage extends BasePage {
-    static at = { title == "gRPC and protobuf Awesome Microservices Communication Introduction" }
+    static at = { title == "Test Driven Development with Infrastructure Code" }
 
     static content = {
         authorBio { $("h2", class: "author-bio") }
