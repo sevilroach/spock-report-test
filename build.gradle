@@ -1,6 +1,6 @@
 ext {
     ext {
-        bootstrapVersion = "4.0.0-2"
+        bootstrapVersion = "3.3.7"
         gebVersion = '2.1'
         groovyVersion = '2.4.13'
         junitVersion = '4.12'

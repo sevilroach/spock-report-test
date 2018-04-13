@@ -28,7 +28,7 @@ class HomePageGebSpec extends BasePageGebSpec implements BasePageTrait {
         at FirstPostPage
 
         then: "Article is displayed"
-        assert postContent.isDisplayed()
+        assert !postContent.isDisplayed()
     }
 
     @Issue("https://johnroach.io")
@@ -37,6 +37,6 @@ class HomePageGebSpec extends BasePageGebSpec implements BasePageTrait {
         readMoreAboutMe.click()
 
         then: "Author page is displayed"
-        assert !currentUrl.contains("author/john")
+        assert currentUrl.contains("author/john")
     }
 }
