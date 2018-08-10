@@ -7,7 +7,6 @@ import groovy.json.JsonSlurper
 import org.junit.Rule
 import org.junit.rules.TestName
 import org.openqa.selenium.chrome.ChromeOptions
-import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 import spock.lang.Shared
 import spock.lang.Stepwise
@@ -55,13 +54,12 @@ class BasePageGebSpec extends GebSpec implements SharedTrait {
 
     public createDriver() {
         String driverType = System.getProperty("driverType")
-        DesiredCapabilities capabilities = new DesiredCapabilities().chrome()
         ChromeOptions options = new ChromeOptions()
+        options.addArguments("start-maximized")
         options.addArguments("disable-gpu")
         options.addArguments("ignore-certificate-errors")
         options.addArguments("ignore-urlfetcher-cert-requests")
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options)
-        driver = new RemoteWebDriver(new URL("http://127.0.0.1:9515"), capabilities)
+        driver = new RemoteWebDriver(new URL("http://127.0.0.1:9515"), options)
         this.sessionId = (((RemoteWebDriver) driver).getSessionId()).toString()
     }
 
