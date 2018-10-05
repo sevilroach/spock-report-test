@@ -2,12 +2,12 @@ ext {
     ext {
         bootstrapVersion = "4.1.3"
         gebVersion = '2.2'
-        groovyVersion = '2.5.1'
+        groovyVersion = '2.5.2'
         junitVersion = '4.12'
         seleniumVersion = '3.14.0'
         slf4jVersion = '1.7.25'
-        spockReportVersion = '1.6.0'
-        spockVersion = '1.1-groovy-2.4'
+        spockReportVersion = '1.6.1'
+        spockVersion = '1.2-groovy-2.5'
     }
 }
 
